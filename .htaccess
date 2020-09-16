@@ -1,0 +1,20 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+SetEnv BASE_URL localhost/plaseo
+
+# BASE
+RewriteRule ^home$ index.php?p=$1
+RewriteRule ^main/home$ index.php?s=$1&p=$2
+
+# CL_ES
+RewriteRule ^cl/$             index.php?c=home
+RewriteRule ^cl/home$         index.php?c=cl&p=home
+RewriteRule ^cl/main/home$    index.php?c=cl&s=main&p=home
+RewriteRule ^cl/es/home$      index.php?c=cl&l=es&p=home
+RewriteRule ^cl/es/main/home$ index.php?c=cl&l=es&s=main&p=home
+
+# ERROR 404
+ErrorDocument 404 http://%{ENV:BASE_URL}/404
+RewriteRule ^404$ index.php?s=error&p=404
+RewriteRule ^cl/404$ index.php?c=cl&s=error&p=404
+RewriteRule ^cl/es/404$ index.php?c=cl&l=es&s=error&p=404
