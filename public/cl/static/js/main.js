@@ -12,12 +12,9 @@ window.onscroll = function () {
     }
 
     init_px = movement_px
-}
+};
 
-
-
-
-function AjaxForm(e, form_id, success_function) {
+var AjaxForm = function (e, form_id, success_function) {
     e.preventDefault();
 
     let form = $(form_id);
@@ -35,8 +32,8 @@ function AjaxForm(e, form_id, success_function) {
             success_function(e.status);
         }
     });
-}
+};
 
-function SuccessAjax(response, form_id) {
+var SuccessAjax = function (response, form_id) {
     alert(response);
-}
+};
