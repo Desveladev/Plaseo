@@ -5,7 +5,7 @@
  */
 include_once "setting.php";
 include_once "routes.php";
-global $country, $lang, $ROUTES;
+global $country, $lang, $ROUTES, $ACTION_ROUTES;
 
 /**
  * Validamos la existencia de de la variable 's', que representa la seccion
@@ -31,13 +31,22 @@ if(isset($_GET['p']) && $_GET['p'] != "") {
     $page = "home";
 }
 
+/**
+ * Validamos que a la seccion a la que se quiere acceder sea 'action'
+ * Se valida tambien si existe la accion en el array de rutas
+ */
+if($section == "action" && $ACTION_ROUTES[$page] === true) {
+
+    include dirname(__FILE__) . "/action/" . $page . ".php";
+    exit();
+}
 
 /**
  * Validamos que la seccion y la pagina existan en las rutas
  * En caso de que no existan, se configura el header de la pagina como un error 404
  * Esta redirecciona la pagina a la de error 404
  */
-if(!isset($ROUTES[$section]) || !array_search($page, $ROUTES[$section], true)) {
+if(!isset($ROUTES[$section]) || $ROUTES[$section][$page] === false) {
 
     header("HTTP/1.0 404 Not Found");
 }

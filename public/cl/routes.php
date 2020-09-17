@@ -1,17 +1,19 @@
 <?php
 
-$ROUTES = array();
-
 /**
  * Main Section
  */
 $ROUTES = array(
     "error" => array(
-        "404"
+        "404" => true,
     ),
     "main" => array(
-        "home"
+        "home" => true,
     ),
+);
+
+$ACTION_ROUTES = array(
+    "mail" => true,
 );
 
 $HEAD = array(
@@ -19,19 +21,19 @@ $HEAD = array(
         "home" => array(
             "title"       => "",
             "description" => "",
-            "img"         => "",
+            "image"       => "",
             "card"        => "",
             "type"        => "",
-            "url"         => "",
+            "url"         => "/home",
             "site_name"   => "",
         ),
     ),
     "default" => array(
         "title"       => "Plaseo",
         "description" => "Descripcion general para las paginas",
-        "img"         => "",
+        "image"       => "/img/favicon.png",
         "card"        => "summary",
         "type"        => "website",
-        "site_name"   => "",
+        "site_name"   => "Plaseo",
     ),
 );

@@ -27,12 +27,12 @@ if(isset($SEO['type']) && $SEO['type'] != "") {
     $type = $HEAD['default']['type'];
 }
 
-if(isset($SEO['img']) && $SEO['img'] != "") {
+if(isset($SEO['image']) && $SEO['image'] != "") {
 
-    $img = $SEO['img'];
+    $img = $SEO['image'];
 } else {
 
-    $img = $HEAD['default']['img'];
+    $img = $HEAD['default']['image'];
 }
 
 if(isset($SEO['card']) && $SEO['card'] != "") {
@@ -62,21 +62,31 @@ if(isset($SEO['site_name']) && $SEO['site_name'] != "") {
 ?>
 <title><?= $title; ?></title>
 <meta name="description" content="<?= $description; ?>">
+<?php
+
+if(isset($SEO['url']) && $SEO['url'] != "") {
+
+    print '<link rel="canonical" href="' . $CONFIG['base_url'] . $url . '"/>';
+}
+
+?>
+
+<link rel="icon" type="image/png" href="<?= $CONFIG['static_url']; ?>/img/favicon.png">
 
 <!-- OG -->
 <meta property="og: locate" content="<?= $lang . "_" . $country['name'] ?>">
 <meta property="og: type" content="<?= $type; ?>">
-<meta property="og: url" content="<?= $url; ?>">
+<meta property="og: url" content="<?= $CONFIG['base_url'] . $url; ?>">
 <meta property="og: site_name" content="<?= $site_name; ?>">
 <meta property="og: title" content="<?= $title; ?>">
 <meta property="og: description" content="<?= $description; ?>">
-<meta property="og: image" content="<?= $img; ?>">
+<meta property="og: image" content="<?= $CONFIG['static_url'] . $img; ?>">
 
 <!-- TWITTER -->
 <meta name="twitter: card" content="<?= $card; ?>">
 <meta name="twitter: title" content="<?= $title; ?>">
 <meta name="twitter: description" content="<?= $description; ?>">
-<meta name="twitter: image" content="<?= $img; ?>">
+<meta name="twitter: image" content="<?= $CONFIG['static_url'] . $img; ?>">
 
 <!-- CSS -->
 <?php
@@ -92,7 +102,7 @@ if($CONFIG['debug'] === true) {
 }
 
 ?>
-<script src=""></script>
+
 <!-- JavaScript -->
 <?php
 
