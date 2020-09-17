@@ -14,4 +14,13 @@ $CONFIG['deployment'] = array(
         ),
         "default_lang" => "es",
     ),
+    "pe" => array(
+        "active" => true,
+        "name" => "pe",
+        "lang" => array(
+            "es" => true,
+            "en" => false,
+        ),
+        "default_lang" => "es",
+    ),
 );

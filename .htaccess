@@ -20,13 +20,11 @@ RewriteRule ^cl/es/main/home$ index.php?c=cl&l=es&s=main&p=home
 
 RewriteRule ^product$            index.php?p=product
 RewriteRule ^cl/product$         index.php?c=cl&p=product
-RewriteRule ^cl/product$         index.php?c=cl&p=product
 RewriteRule ^cl/main/product$    index.php?c=cl&s=main&p=product
 RewriteRule ^cl/es/product$      index.php?c=cl&l=es&p=product
 RewriteRule ^cl/es/main/product$ index.php?c=cl&l=es&s=main&p=product
 
 RewriteRule ^contact$            index.php?p=contact
-RewriteRule ^cl/contact$         index.php?c=cl&p=contact
 RewriteRule ^cl/contact$         index.php?c=cl&p=contact
 RewriteRule ^cl/main/contact$    index.php?c=cl&s=main&p=contact
 RewriteRule ^cl/es/contact$      index.php?c=cl&l=es&p=contact
@@ -39,11 +37,45 @@ RewriteRule ^cl/main/blog$    index.php?c=cl&s=main&p=blog
 RewriteRule ^cl/es/blog$      index.php?c=cl&l=es&p=blog
 RewriteRule ^cl/es/main/blog$ index.php?c=cl&l=es&s=main&p=blog
 
-# CL ACTION
+# ACTION
 RewriteRule ^action/([a-zA-Z]+)$ index.php?s=action&p=$1
+
+# ERROR 404
+RewriteRule ^cl/404$    index.php?c=cl&s=error&p=404
+RewriteRule ^cl/es/404$ index.php?c=cl&l=es&s=error&p=404
+
+# PE_ES
+RewriteRule ^pe/$             index.php?c=pe&p=home
+RewriteRule ^pe/home$         index.php?c=pe&p=home
+RewriteRule ^pe/main/$        index.php?c=pe&s=main&p=home
+RewriteRule ^pe/main/home$    index.php?c=pe&s=main&p=home
+RewriteRule ^pe/es/$          index.php?c=pe&l=es&p=home
+RewriteRule ^pe/es/home$      index.php?c=pe&l=es&p=home
+RewriteRule ^pe/es/main/$     index.php?c=pe&l=es&s=main&p=home
+RewriteRule ^pe/es/main/home$ index.php?c=pe&l=es&s=main&p=home
+
+RewriteRule ^pe/product$         index.php?c=pe&p=product
+RewriteRule ^pe/main/product$    index.php?c=pe&s=main&p=product
+RewriteRule ^pe/es/product$      index.php?c=pe&l=es&p=product
+RewriteRule ^pe/es/main/product$ index.php?c=pe&l=es&s=main&p=product
+
+RewriteRule ^pe/contact$         index.php?c=pe&p=contact
+RewriteRule ^pe/main/contact$    index.php?c=pe&s=main&p=contact
+RewriteRule ^pe/es/contact$      index.php?c=pe&l=es&p=contact
+RewriteRule ^pe/es/main/contact$ index.php?c=pe&l=es&s=main&p=contact
+
+RewriteRule ^pe/blog$         index.php?c=pe&p=blog
+RewriteRule ^pe/main/blog$    index.php?c=pe&s=main&p=blog
+RewriteRule ^pe/es/blog$      index.php?c=pe&l=es&p=blog
+RewriteRule ^pe/es/main/blog$ index.php?c=pe&l=es&s=main&p=blog
+
+# ACTION
+RewriteRule ^pe/action/([a-zA-Z]+)$ index.php?c=pe&s=action&p=$1
+
+# ERROR 404
+RewriteRule ^pe/404$    index.php?c=pe&s=error&p=404
+RewriteRule ^pe/es/404$ index.php?c=pe&l=es&s=error&p=404
 
 # ERROR 404
 ErrorDocument 404       http://%{ENV:BASE_URL}/404
 RewriteRule ^404$       index.php?s=error&p=404
-RewriteRule ^cl/404$    index.php?c=cl&s=error&p=404
-RewriteRule ^cl/es/404$ index.php?c=cl&l=es&s=error&p=404
