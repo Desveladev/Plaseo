@@ -44,7 +44,7 @@ if($CONFIG['debug'] === false) {
  */
 include_once dirname(__FILE__) . "/public/" . $country['name'] . "/setting.php";
 include_once dirname(__FILE__) . "/public/" . $country['name'] . "/routes.php";
-global $country, $lang, $ROUTES, $ACTION_ROUTES, $CONFIG;
+global $ROUTES, $ACTION_ROUTES;
 
 /**
  * Validamos la existencia de de la variable 's', que representa la seccion
@@ -137,6 +137,7 @@ include_once dirname(__FILE__) . "/public/" . $country['name'] . "/master/footer
 </body>
 </html>
 
+<?php
 /**
  * Valudamos si el sistema esta ne modo de debug
  * En caso de no estarlo, se cierra y limpia todo lo que va a pantalla y lo minifica

@@ -8,10 +8,10 @@ $ROUTES = array(
         "404" => true,
     ),
     "main" => array(
-        "home" => true,
+        "home"    => true,
         "product" => true,
-        "blog" => true,
-        "contact" => false
+        "blog"    => true,
+        "contact" => true
     ),
 );
 
