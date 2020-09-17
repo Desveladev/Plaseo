@@ -1,0 +1,39 @@
+input[type=number] { -moz-appearance:textfield; }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+:root {
+    --header-height: 56px;
+}
+
+@font-face {
+    font-family: Ailerons;
+    src: url("http://localhost/plaseo/public/cl/static/font/Ailerons-Regular.otf");
+}
+
+.logo {
+    font-family: Ailerons;
+    font-size: 1.7rem;
+}
+
+.navbar.header-fixed {
+    position: fixed;
+    min-height: var(--header-height);
+    height: auto;
+    width: 100%;
+    top: 0;
+    transition: top .3s;
+}
+
+.container.header-fixed,
+.container-fluid.header-fixed {
+    padding-top: var(--header-height);
+    height: 2000px;
+}
+
+.btn {
+    box-shadow: none !important;
+}

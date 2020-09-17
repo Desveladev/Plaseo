@@ -9,6 +9,9 @@ $ROUTES = array(
     ),
     "main" => array(
         "home" => true,
+        "product" => true,
+        "blog" => true,
+        "contact" => false
     ),
 );
 

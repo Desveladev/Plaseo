@@ -1,3 +1,22 @@
+
+let init_px = window.pageYOffset;
+window.onscroll = function () {
+
+    let movement_px = window.pageYOffset;
+    if(init_px >= movement_px) {
+
+        $("#header").css("top", "0px");
+    } else {
+
+        $("#header").css("top", "-100px");
+    }
+
+    init_px = movement_px
+}
+
+
+
+
 function AjaxForm(e, form_id, success_function) {
     e.preventDefault();
 
