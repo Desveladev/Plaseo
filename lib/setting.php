@@ -1,7 +1,7 @@
 <?php
 
 $CONFIG = array();
-$CONFIG['debug'] = false;
+$CONFIG['debug'] = true;
 
 $CONFIG['deployment'] = array(
     "default" => "cl",
