@@ -5,13 +5,21 @@ include_once "lib/php-html-css-js-minifier.php";
 global $CONFIG;
 
 /**
- * Validamos que exista la variable $_GET['c'] y que no este vacia
+ * Validamos si esta habilitado el multi nacional y en caso de que si lo este,
+ * validamos que exista la variable $_GET['c'] y que no este vacia
  * En caso de que exista tanto la variable como el pais en la configuración
  * En caso contrario se usara el pais marcado como default en la variable $CONFIG['deployment']
  */
-if(isset($_GET['c']) && $_GET['c'] != "" && isset($CONFIG['deployment'][$_GET['c']]) && $CONFIG['deployment'][$_GET['c']]['active'] === true) {
+if($CONFIG['deployment']['multi_national'] === true) {
 
-    $country = $CONFIG['deployment'][$_GET['c']];
+    if(isset($_GET['c']) && $_GET['c'] != "" && isset($CONFIG['deployment'][$_GET['c']])
+        && $CONFIG['deployment'][$_GET['c']]['active'] === true) {
+
+        $country = $CONFIG['deployment'][$_GET['c']];
+    } else {
+
+        $country = $CONFIG['deployment'][$CONFIG['deployment']['default']];
+    }
 } else {
 
     $country = $CONFIG['deployment'][$CONFIG['deployment']['default']];
@@ -22,9 +30,16 @@ if(isset($_GET['c']) && $_GET['c'] != "" && isset($CONFIG['deployment'][$_GET['c
  * En caso de que exista y que este activo, se almacena en la variable $lang
  * En caso contrario, se usa el idioma marcado como default en la variable $country['lang']['default_lang']
  */
-if(isset($_GET['l']) && $_GET['l'] != "" && isset($country['lang'][$_GET['l']]) && $country['lang'][$_GET['l']] === true) {
+if($country['multi_lang'] === true) {
 
-    $lang = $_GET['l'];
+    if(isset($_GET['l']) && $_GET['l'] != "" && isset($country['lang'][$_GET['l']])
+        && $country['lang'][$_GET['l']] === true) {
+
+        $lang = $_GET['l'];
+    } else {
+
+        $lang = $country['default_lang'];
+    }
 } else {
 
     $lang = $country['default_lang'];
@@ -42,9 +57,9 @@ if($CONFIG['debug'] === false) {
 /**
  * Nos traemos la configuracion y rutas configuradas para este index
  */
-include_once dirname(__FILE__) . "/public/" . $country['name'] . "/setting.php";
-include_once dirname(__FILE__) . "/public/" . $country['name'] . "/routes.php";
-global $ROUTES, $ACTION_ROUTES;
+include_once dirname(__FILE__) . "/public/" . $country['code'] . "/setting.php";
+include_once dirname(__FILE__) . "/public/" . $country['code'] . "/routes.php";
+global $ROUTES, $ACTION_ROUTES, $CONFIG;
 
 /**
  * Validamos la existencia de de la variable 's', que representa la seccion
@@ -92,6 +107,19 @@ if(!isset($ROUTES[$section]) || $ROUTES[$section][$page] === false) {
 }
 
 /**
+ * Validamos que el pais este habilitado para el multi-idioma
+ * Creamos el objeto lang el cual almacenara en la cache el pais y el idioma actual para poder usarlo en funciones
+ * estaticas del objeto
+ */
+if($CONFIG['deployment'][$country['code']]['multi_lang'] === true) {
+
+    include_once dirname(__FILE__) . "/public/" . $country['code'] . "/lang/" . $lang . ".php";
+    include_once dirname(__FILE__) . "/lib/lib_lang.php";
+
+    $langClass = new LangLib\Lang($country['code'], $lang);
+}
+
+/**
  * Configuramos toda la estructura html que se usara en la pagina y la desplegamos directamente
  * El lenguale se lo asignamos segun el configurado
  * Se agrega el head y las master con las que se trabajara en la pagina
@@ -107,7 +135,7 @@ if(!isset($ROUTES[$section]) || $ROUTES[$section][$page] === false) {
      * Este contiene toda la configuracion del SEO de la pagina
      * Los archivos de estilos y javascript que se usan en la pagina a desplegar
      */
-    include_once dirname(__FILE__) . "/public/" . $country['name'] . "/master/head.php";
+    include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/head.php";
 
     ?>
 </head>
@@ -118,7 +146,7 @@ if(!isset($ROUTES[$section]) || $ROUTES[$section][$page] === false) {
  * El header es una seccion de la pagina que suele
  * usarse para contener el navegador de la misma
  */
-include_once dirname(__FILE__) . "/public/" . $country['name'] . "/master/header.php";
+include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/header.php";
 
 /**
  * Este codigo trae a este archivo la pagina que se desplegara
@@ -126,12 +154,12 @@ include_once dirname(__FILE__) . "/public/" . $country['name'] . "/master/header
  * Es obligatorio que exista este archivo y se agregue a la seccion de rutas
  * o se va a generar un error 404
  */
-include_once dirname(__FILE__) . "/public/" . $country['name'] . "/page/" . $section . "/" . $page . ".php";
+include_once dirname(__FILE__) . "/public/" . $country['code'] . "/page/" . $section . "/" . $page . ".php";
 
 /**
  * El footer contiene la parte final de la pagina, en este archivo
  */
-include_once dirname(__FILE__) . "/public/" . $country['name'] . "/master/footer.php";
+include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/footer.php";
 
 ?>
 </body>

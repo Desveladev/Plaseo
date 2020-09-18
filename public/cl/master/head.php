@@ -74,7 +74,7 @@ if(isset($SEO['url']) && $SEO['url'] != "") {
 <link rel="icon" type="image/png" href="<?= $CONFIG['static_url']; ?>/img/favicon.png">
 
 <!-- OG -->
-<meta property="og: locate" content="<?= $lang . "_" . $country['name'] ?>">
+<meta property="og: locate" content="<?= $lang . "_" . $country['code'] ?>">
 <meta property="og: type" content="<?= $type; ?>">
 <meta property="og: url" content="<?= $CONFIG['base_url'] . $url; ?>">
 <meta property="og: site_name" content="<?= $site_name; ?>">
