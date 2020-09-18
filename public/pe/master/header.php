@@ -42,19 +42,64 @@ if($page == "home") {
                     <a class="nav-link" href="<?= $CONFIG['actual_url']; ?>/contact">Contact</a>
                 </li>
             </ul>
-            <div class="dropdown ml-auto">
-                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="country_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Peru - <?= strtoupper($lang); ?>
-                </button>
-                <div class="dropdown-menu dropdown-menu-left dropdown-menu-md-right dropdown-collapse" aria-labelledby="country_button">
-                    <h6 class="dropdown-header">Pais</h6>
-                    <a class="dropdown-item" href="<?= $CONFIG['base_url'] ?>/cl/">Chile</a>
-                    <a class="dropdown-item" href="<?= $CONFIG['base_url'] ?>/pe/">Peru</a>
-                    <div class="dropdown-divider"></div>
-                    <h6 class="dropdown-header">Idioma</h6>
-                    <a class="dropdown-item" href="<?= $CONFIG['country_url']; ?>/es/">ES</a>
-                </div>
-            </div>
+            <?php
+            /**
+             * Validamos si el multidioma o el multipais esta activado
+             * En caso de que alguno de los 2 los este, se imprime el boton y el contenido variara segun cual de los 2
+             * estaba activo o si ambos lo estaban
+             */
+            if($CONFIG['deployment']['multi_national'] === true || $country['multi_lang'] === true) {
+
+                print '
+                    <div class="dropdown ml-auto">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="country_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+
+                if($CONFIG['deployment']['multi_national'] === true) {
+
+                    print $country['name'];
+                }
+
+                if($CONFIG['deployment']['multi_national'] === true && $country['multi_lang'] === true) {
+
+                    print " - ";
+                }
+
+                if($country['multi_lang'] === true) {
+
+                    print strtoupper($lang);
+                }
+
+                print '
+                            </button>
+                        <div class="dropdown-menu dropdown-menu-left dropdown-menu-md-right dropdown-collapse" aria-labelledby="country_button">';
+
+                if($CONFIG['deployment']['multi_national'] === true) {
+
+                    print '
+                            <h6 class="dropdown-header">Pais</h6>
+                            <a class="dropdown-item" href="' . $CONFIG['base_url'] . '/cl/">Chile</a>
+                            <a class="dropdown-item" href="' . $CONFIG['base_url'] . '/pe/">Peru</a>';
+                }
+
+                if($CONFIG['deployment']['multi_national'] === true && $country['multi_lang'] === true) {
+
+                    print '<div class="dropdown-divider"></div>';
+                }
+
+                if($country['multi_lang'] === true) {
+
+                    print '
+                            <h6 class="dropdown-header">Idioma</h6>
+                            <a class="dropdown-item" href="' . $CONFIG['country_url'] . '/es/">ES</a>
+                            <a class="dropdown-item" href="' . $CONFIG['country_url'] . '/en/">EN</a>';
+                }
+
+
+                print '
+                        </div>
+                    </div>';
+            }
+            ?>
         </div>
     </div>
 </header>

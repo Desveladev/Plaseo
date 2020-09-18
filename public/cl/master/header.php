@@ -96,8 +96,8 @@ if($page == "home") {
 
                     print '
                             <h6 class="dropdown-header">Idioma</h6>
-                            <a class="dropdown-item" href="' . $CONFIG['country_url'] . '>/es/">ES</a>
-                            <a class="dropdown-item" href="' . $CONFIG['country_url'] . '>/en/">EN</a>';
+                            <a class="dropdown-item" href="' . $CONFIG['country_url'] . '/es/">ES</a>
+                            <a class="dropdown-item" href="' . $CONFIG['country_url'] . '/en/">EN</a>';
                 }
 
 

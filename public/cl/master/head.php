@@ -66,7 +66,7 @@ if(isset($SEO['site_name']) && $SEO['site_name'] != "") {
 
 if(isset($SEO['url']) && $SEO['url'] != "") {
 
-    print '<link rel="canonical" href="' . $CONFIG['base_url'] . $url . '"/>';
+    print '<link rel="canonical" href="' . $CONFIG['country_url'] . $url . '"/>';
 }
 
 ?>
