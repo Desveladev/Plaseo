@@ -12,7 +12,6 @@ $CONFIG['lang_url']    = $CONFIG['country_url'];
 if($country['code'] != $CONFIG['deployment']['default']) {
 
     $CONFIG['actual_url']  .= "/" . $country['code'];
-    $CONFIG['country_url'] .= "/" . $country['code'];
 }
 
 if($lang != $country['default_lang']) {

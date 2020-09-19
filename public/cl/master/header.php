@@ -34,7 +34,7 @@ if($page == "home") {
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item <?= $home; ?>">
                     <a class="nav-link" href="<?= $CONFIG['actual_url']; ?>/"><?= Lang::get_text("header", "home"); ?></a>
                 </li>
@@ -47,65 +47,65 @@ if($page == "home") {
                 <li class="nav-item <?= $contact; ?>">
                     <a class="nav-link" href="<?= $CONFIG['actual_url']; ?>/contact"><?= Lang::get_text("header", "contact"); ?></a>
                 </li>
-            </ul>
-            <?php
-            /**
-             * Validamos si el multidioma o el multipais esta activado
-             * En caso de que alguno de los 2 los este, se imprime el boton y el contenido variara segun cual de los 2
-             * estaba activo o si ambos lo estaban
-             */
-            if($CONFIG['deployment']['multi_national'] === true || $country['multi_lang'] === true) {
+                <?php
+                /**
+                 * Validamos si el multidioma o el multipais esta activado
+                 * En caso de que alguno de los 2 los este, se imprime el boton y el contenido variara segun cual de los 2
+                 * estaba activo o si ambos lo estaban
+                 */
+                if($CONFIG['deployment']['multi_national'] === true || $country['multi_lang'] === true) {
 
-                print '
-                    <div class="dropdown ml-auto">
+                    print '
+                    <li class="dropdown">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="country_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
 
-                if($CONFIG['deployment']['multi_national'] === true) {
+                    if($CONFIG['deployment']['multi_national'] === true) {
 
-                    print $country['name'];
-                }
+                        print $country['name'];
+                    }
 
-                if($CONFIG['deployment']['multi_national'] === true && $country['multi_lang'] === true) {
+                    if($CONFIG['deployment']['multi_national'] === true && $country['multi_lang'] === true) {
 
-                    print " - ";
-                }
+                        print " - ";
+                    }
 
-                if($country['multi_lang'] === true) {
+                    if($country['multi_lang'] === true) {
 
-                    print strtoupper($lang);
-                }
+                        print strtoupper($lang);
+                    }
 
-                print '
+                    print '
                             </button>
                         <div class="dropdown-menu dropdown-menu-left dropdown-menu-md-right dropdown-collapse" aria-labelledby="country_button">';
 
-                if($CONFIG['deployment']['multi_national'] === true) {
+                    if($CONFIG['deployment']['multi_national'] === true) {
 
-                    print '
+                        print '
                             <h6 class="dropdown-header">Pais</h6>
                             <a class="dropdown-item" href="' . $CONFIG['base_url'] . '/cl/">Chile</a>
                             <a class="dropdown-item" href="' . $CONFIG['base_url'] . '/pe/">Peru</a>';
-                }
+                    }
 
-                if($CONFIG['deployment']['multi_national'] === true && $country['multi_lang'] === true) {
+                    if($CONFIG['deployment']['multi_national'] === true && $country['multi_lang'] === true) {
 
-                    print '<div class="dropdown-divider"></div>';
-                }
+                        print '<div class="dropdown-divider"></div>';
+                    }
 
-                if($country['multi_lang'] === true) {
+                    if($country['multi_lang'] === true) {
 
-                    print '
+                        print '
                             <h6 class="dropdown-header">Idioma</h6>
                             <a class="dropdown-item" href="' . $CONFIG['country_url'] . '/es/">ES</a>
                             <a class="dropdown-item" href="' . $CONFIG['country_url'] . '/en/">EN</a>';
-                }
+                    }
 
 
-                print '
+                    print '
                         </div>
-                    </div>';
-            }
-            ?>
+                    </li>';
+                }
+                ?>
+            </ul>
         </div>
     </div>
 </header>

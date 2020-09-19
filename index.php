@@ -102,7 +102,7 @@ if($section == "action" && $ACTION_ROUTES[$page] === true) {
  */
 if(!isset($ROUTES[$section]) || $ROUTES[$section][$page] === false) {
 
-    header("Location: " . $CONFIG['base_url'] . "/404");
+    header("Location: " . $CONFIG['country_url'] . "/404");
     exit();
 }
 

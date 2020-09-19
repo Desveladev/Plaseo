@@ -88,6 +88,9 @@ if(isset($SEO['url']) && $SEO['url'] != "") {
 <meta name="twitter: description" content="<?= $description; ?>">
 <meta name="twitter: image" content="<?= $CONFIG['static_url'] . $img; ?>">
 
+<!-- FontAwesome -->
+<script src="https://kit.fontawesome.com/9b00a7e038.js" crossorigin="anonymous"></script>
+
 <!-- CSS -->
 <?php
 

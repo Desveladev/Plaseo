@@ -5,7 +5,7 @@ $CONFIG['debug'] = true;
 
 $CONFIG['deployment'] = array(
     "default"        => "cl",
-    "multi_national" => true,
+    "multi_national" => false,
     "cl" => array(
         "active"     => true,
         "code"       => "cl",
