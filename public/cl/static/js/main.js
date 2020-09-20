@@ -6,9 +6,11 @@ window.onscroll = function () {
     if(init_px >= movement_px) {
 
         $("#header").css("top", "0px");
+        $("#header").css("position", "fixed");
     } else {
 
         $("#header").css("top", "-100px");
+        $("#header").css("position", "fixed");
     }
 
     init_px = movement_px

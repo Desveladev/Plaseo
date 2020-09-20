@@ -29,3 +29,5 @@ $CONFIG['deployment'] = array(
         "default_lang" => "es",
     ),
 );
+
+$CONFIG['analytics']['google'] = "UA-178438579-1";

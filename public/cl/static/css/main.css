@@ -18,7 +18,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 @font-face {
     font-family: Ailerons;
-    src: url("http://localhost/plaseo/public/cl/static/font/Ailerons-Regular.otf");
+    src: url("http://35.226.18.171/public/cl/static/font/Ailerons-Regular.otf");
 }
 
 .logo {

@@ -2,8 +2,8 @@
 
 global $country, $lang, $CONFIG;
 
-$CONFIG['base_url']    = "http://localhost/plaseo";
-$CONFIG['static_url']  = "http://localhost/plaseo/public/" . $country['code'] . "/static";
+$CONFIG['base_url']    = "http://35.226.18.171";
+$CONFIG['static_url']  = "http://35.226.18.171/public/" . $country['code'] . "/static";
 
 $CONFIG['actual_url']  = $CONFIG['base_url'];
 $CONFIG['country_url'] = $CONFIG['base_url'] . "/" . $country['code'];
