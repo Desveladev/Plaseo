@@ -1,3 +1,8 @@
+window.dataLayer = window.dataLayer || [];
+function gtag(){
+
+    dataLayer.push(arguments);
+}
 
 let init_px = window.pageYOffset;
 window.onscroll = function () {

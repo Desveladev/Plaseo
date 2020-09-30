@@ -1,111 +1,87 @@
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-SetEnv BASE_URL localhost/plaseo
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    Options -Indexes
+    IndexIgnore *.php *.html
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
 
-# BASE
-RewriteRule ^home$      index.php?p=$1
-RewriteRule ^main/home$ index.php?s=$1&p=$2
+    SetEnv BASE_URL desveladev.com
 
-# CL_ES
-RewriteRule ^/$               index.php?c=home
-RewriteRule ^/home$           index.php?c=home
-RewriteRule ^es/$             index.php?l=es&p=home
-RewriteRule ^es/home$         index.php?l=es&p=home
-RewriteRule ^es/main/$        index.php?l=es&s=main&p=home
-RewriteRule ^es/main/home$    index.php?l=es&s=main&p=home
-RewriteRule ^en/$             index.php?l=en&p=home
-RewriteRule ^en/home$         index.php?l=en&p=home
-RewriteRule ^en/main/$        index.php?l=en&s=main&p=home
-RewriteRule ^en/main/home$    index.php?l=en&s=main&p=home
-RewriteRule ^cl/$             index.php?c=home
-RewriteRule ^cl/home$         index.php?c=cl&p=home
-RewriteRule ^cl/main/$        index.php?c=cl&s=main&p=home
-RewriteRule ^cl/main/home$    index.php?c=cl&s=main&p=home
-RewriteRule ^cl/es/$          index.php?c=cl&l=es&p=home
-RewriteRule ^cl/es/home$      index.php?c=cl&l=es&p=home
-RewriteRule ^cl/es/main/$     index.php?c=cl&l=es&s=main&p=home
-RewriteRule ^cl/es/main/home$ index.php?c=cl&l=es&s=main&p=home
-RewriteRule ^cl/en/$          index.php?c=cl&l=en&p=home
-RewriteRule ^cl/en/home$      index.php?c=cl&l=en&p=home
-RewriteRule ^cl/en/main/$     index.php?c=cl&l=en&s=main&p=home
-RewriteRule ^cl/en/main/home$ index.php?c=cl&l=en&s=main&p=home
+    RewriteRule ^public/ - [L,R=404]
+    RewriteRule ^lib/ - [L,R=404]
 
-RewriteRule ^product$            index.php?p=product
-RewriteRule ^es/product$      index.php?l=es&p=product
-RewriteRule ^es/main/product$ index.php?l=es&s=main&p=product
-RewriteRule ^en/product$      index.php?l=en&p=product
-RewriteRule ^en/main/product$ index.php?l=en&s=main&p=product
-RewriteRule ^cl/product$         index.php?c=cl&p=product
-RewriteRule ^cl/main/product$    index.php?c=cl&s=main&p=product
-RewriteRule ^cl/es/product$      index.php?c=cl&l=es&p=product
-RewriteRule ^cl/es/main/product$ index.php?c=cl&l=es&s=main&p=product
-RewriteRule ^cl/en/product$      index.php?c=cl&l=en&p=product
-RewriteRule ^cl/en/main/product$ index.php?c=cl&l=en&s=main&p=product
+    # BASE
+    RewriteRule ^home$      index.php?p=$1
+    RewriteRule ^main/home$ index.php?s=$1&p=$2
 
-RewriteRule ^contact$            index.php?p=contact
-RewriteRule ^es/contact$      index.php?l=es&p=contact
-RewriteRule ^es/main/contact$ index.php?l=es&s=main&p=contact
-RewriteRule ^en/contact$      index.php?l=en&p=contact
-RewriteRule ^en/main/contact$ index.php?l=en&s=main&p=contact
-RewriteRule ^cl/contact$         index.php?c=cl&p=contact
-RewriteRule ^cl/main/contact$    index.php?c=cl&s=main&p=contact
-RewriteRule ^cl/es/contact$      index.php?c=cl&l=es&p=contact
-RewriteRule ^cl/es/main/contact$ index.php?c=cl&l=es&s=main&p=contact
-RewriteRule ^cl/en/contact$      index.php?c=cl&l=en&p=contact
-RewriteRule ^cl/en/main/contact$ index.php?c=cl&l=en&s=main&p=contact
+    # CL_ES
+    RewriteRule ^/$               index.php?c=home
+    RewriteRule ^/home$           index.php?p=home
+    RewriteRule ^es/$             index.php?l=es&p=home
+    RewriteRule ^es/home$         index.php?l=es&p=home
+    RewriteRule ^es/main/$        index.php?l=es&s=main&p=home
+    RewriteRule ^es/main/home$    index.php?l=es&s=main&p=home
+    RewriteRule ^en/$             index.php?l=en&p=home
+    RewriteRule ^en/home$         index.php?l=en&p=home
+    RewriteRule ^en/main/$        index.php?l=en&s=main&p=home
+    RewriteRule ^en/main/home$    index.php?l=en&s=main&p=home
+    RewriteRule ^cl/$             index.php?c=home
+    RewriteRule ^cl/home$         index.php?c=cl&p=home
+    RewriteRule ^cl/main/$        index.php?c=cl&s=main&p=home
+    RewriteRule ^cl/main/home$    index.php?c=cl&s=main&p=home
+    RewriteRule ^cl/es/$          index.php?c=cl&l=es&p=home
+    RewriteRule ^cl/es/home$      index.php?c=cl&l=es&p=home
+    RewriteRule ^cl/es/main/$     index.php?c=cl&l=es&s=main&p=home
+    RewriteRule ^cl/es/main/home$ index.php?c=cl&l=es&s=main&p=home
+    RewriteRule ^cl/en/$          index.php?c=cl&l=en&p=home
+    RewriteRule ^cl/en/home$      index.php?c=cl&l=en&p=home
+    RewriteRule ^cl/en/main/$     index.php?c=cl&l=en&s=main&p=home
+    RewriteRule ^cl/en/main/home$ index.php?c=cl&l=en&s=main&p=home
 
-RewriteRule ^blog$            index.php?p=blog
-RewriteRule ^es/blog$      index.php?l=es&p=blog
-RewriteRule ^es/main/blog$ index.php?l=es&s=main&p=blog
-RewriteRule ^en/blog$      index.php?l=en&p=blog
-RewriteRule ^en/main/blog$ index.php?l=en&s=main&p=blog
-RewriteRule ^cl/blog$         index.php?c=cl&p=blog
-RewriteRule ^cl/main/blog$    index.php?c=cl&s=main&p=blog
-RewriteRule ^cl/es/blog$      index.php?c=cl&l=es&p=blog
-RewriteRule ^cl/es/main/blog$ index.php?c=cl&l=es&s=main&p=blog
-RewriteRule ^cl/en/blog$      index.php?c=cl&l=en&p=blog
-RewriteRule ^cl/en/main/blog$ index.php?c=cl&l=en&s=main&p=blog
+    RewriteRule ^product$            index.php?p=product
+    RewriteRule ^es/product$         index.php?l=es&p=product
+    RewriteRule ^es/main/product$    index.php?l=es&s=main&p=product
+    RewriteRule ^en/product$         index.php?l=en&p=product
+    RewriteRule ^en/main/product$    index.php?l=en&s=main&p=product
+    RewriteRule ^cl/product$         index.php?c=cl&p=product
+    RewriteRule ^cl/main/product$    index.php?c=cl&s=main&p=product
+    RewriteRule ^cl/es/product$      index.php?c=cl&l=es&p=product
+    RewriteRule ^cl/es/main/product$ index.php?c=cl&l=es&s=main&p=product
+    RewriteRule ^cl/en/product$      index.php?c=cl&l=en&p=product
+    RewriteRule ^cl/en/main/product$ index.php?c=cl&l=en&s=main&p=product
 
-# ACTION
-RewriteRule ^action/([a-zA-Z]+)$ index.php?s=action&p=$1
+    RewriteRule ^contact$            index.php?p=contact
+    RewriteRule ^es/contact$         index.php?l=es&p=contact
+    RewriteRule ^es/main/contact$    index.php?l=es&s=main&p=contact
+    RewriteRule ^en/contact$         index.php?l=en&p=contact
+    RewriteRule ^en/main/contact$    index.php?l=en&s=main&p=contact
+    RewriteRule ^cl/contact$         index.php?c=cl&p=contact
+    RewriteRule ^cl/main/contact$    index.php?c=cl&s=main&p=contact
+    RewriteRule ^cl/es/contact$      index.php?c=cl&l=es&p=contact
+    RewriteRule ^cl/es/main/contact$ index.php?c=cl&l=es&s=main&p=contact
+    RewriteRule ^cl/en/contact$      index.php?c=cl&l=en&p=contact
+    RewriteRule ^cl/en/main/contact$ index.php?c=cl&l=en&s=main&p=contact
 
-# ERROR 404
-RewriteRule ^cl/404$    index.php?c=cl&s=error&p=404
-RewriteRule ^cl/es/404$ index.php?c=cl&l=es&s=error&p=404
+    RewriteRule ^blog$            index.php?p=blog
+    RewriteRule ^es/blog$         index.php?l=es&p=blog
+    RewriteRule ^es/main/blog$    index.php?l=es&s=main&p=blog
+    RewriteRule ^en/blog$         index.php?l=en&p=blog
+    RewriteRule ^en/main/blog$    index.php?l=en&s=main&p=blog
+    RewriteRule ^cl/blog$         index.php?c=cl&p=blog
+    RewriteRule ^cl/main/blog$    index.php?c=cl&s=main&p=blog
+    RewriteRule ^cl/es/blog$      index.php?c=cl&l=es&p=blog
+    RewriteRule ^cl/es/main/blog$ index.php?c=cl&l=es&s=main&p=blog
+    RewriteRule ^cl/en/blog$      index.php?c=cl&l=en&p=blog
+    RewriteRule ^cl/en/main/blog$ index.php?c=cl&l=en&s=main&p=blog
 
-# PE_ES
-RewriteRule ^pe/$             index.php?c=pe&p=home
-RewriteRule ^pe/home$         index.php?c=pe&p=home
-RewriteRule ^pe/main/$        index.php?c=pe&s=main&p=home
-RewriteRule ^pe/main/home$    index.php?c=pe&s=main&p=home
-RewriteRule ^pe/es/$          index.php?c=pe&l=es&p=home
-RewriteRule ^pe/es/home$      index.php?c=pe&l=es&p=home
-RewriteRule ^pe/es/main/$     index.php?c=pe&l=es&s=main&p=home
-RewriteRule ^pe/es/main/home$ index.php?c=pe&l=es&s=main&p=home
+    # ACTION
+    RewriteRule ^action/([a-zA-Z]+)$ index.php?s=action&p=$1
 
-RewriteRule ^pe/product$         index.php?c=pe&p=product
-RewriteRule ^pe/main/product$    index.php?c=pe&s=main&p=product
-RewriteRule ^pe/es/product$      index.php?c=pe&l=es&p=product
-RewriteRule ^pe/es/main/product$ index.php?c=pe&l=es&s=main&p=product
+    # ERROR 404
+    RewriteRule ^cl/404$    index.php?c=cl&s=error&p=404
+    RewriteRule ^cl/es/404$ index.php?c=cl&l=es&s=error&p=404
 
-RewriteRule ^pe/contact$         index.php?c=pe&p=contact
-RewriteRule ^pe/main/contact$    index.php?c=pe&s=main&p=contact
-RewriteRule ^pe/es/contact$      index.php?c=pe&l=es&p=contact
-RewriteRule ^pe/es/main/contact$ index.php?c=pe&l=es&s=main&p=contact
-
-RewriteRule ^pe/blog$         index.php?c=pe&p=blog
-RewriteRule ^pe/main/blog$    index.php?c=pe&s=main&p=blog
-RewriteRule ^pe/es/blog$      index.php?c=pe&l=es&p=blog
-RewriteRule ^pe/es/main/blog$ index.php?c=pe&l=es&s=main&p=blog
-
-# ACTION
-RewriteRule ^pe/action/([a-zA-Z]+)$ index.php?c=pe&s=action&p=$1
-
-# ERROR 404
-RewriteRule ^pe/404$    index.php?c=pe&s=error&p=404
-RewriteRule ^pe/es/404$ index.php?c=pe&l=es&s=error&p=404
-
-# ERROR 404
-ErrorDocument 404       http://%{ENV:BASE_URL}/404
-RewriteRule ^404$       index.php?s=error&p=404
+    # ERROR 404
+    ErrorDocument 404       https://desveladev.com/404
+    RewriteRule ^404$       index.php?s=error&p=404
+</IfModule>

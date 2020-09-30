@@ -50,8 +50,19 @@ global $CONFIG;
         </div>
     </div>
     <div class="container mt-5">
-        <div class="row card bg-violet">
-
+        <div class="row card bg-violet slide">
+            <div>
+                poto
+            </div>
+            <div>
+                poto
+            </div>
+            <div>
+                poto
+            </div>
+            <div>
+                poto
+            </div>
         </div>
     </div>
 </main>

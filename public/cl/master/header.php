@@ -29,7 +29,7 @@ if($page == "home") {
 ?>
 <header class="navbar navbar-expand-md bg-dark navbar-dark header-fixed" id="header">
     <div class="container-fluid">
-        <a href="<?= $CONFIG['actual_url']; ?>/" class="logo navbar-brand p-0">PLASEO</a>
+        <a href="<?= $CONFIG['actual_url']; ?>/" class="logo navbar-brand p-0">Desvela<span>Dev</span></a>
         <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
         </button>

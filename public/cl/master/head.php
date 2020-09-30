@@ -98,6 +98,7 @@ if($CONFIG['debug'] === true) {
 
     print '
     <link rel="stylesheet" href="' . $CONFIG['static_url'] . '/css/bootstrap.min.css">
+    <link rel="stylesheet" href="' . $CONFIG['static_url'] . '/css/slick.css">
     <link rel="stylesheet" href="' . $CONFIG['static_url'] . '/css/main.css">';
 } else {
 
@@ -107,6 +108,7 @@ if($CONFIG['debug'] === true) {
 ?>
 
 <!-- JavaScript -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?= $CONFIG['analytics']['google']; ?>"></script>
 <?php
 
 if($CONFIG['debug'] === true) {
@@ -115,6 +117,7 @@ if($CONFIG['debug'] === true) {
     <script src="' . $CONFIG['static_url'] . '/js/jquery-3.5.1.min.js"></script>
     <script src="' . $CONFIG['static_url'] . '/js/popper.min.js"></script>
     <script src="' . $CONFIG['static_url'] . '/js/bootstrap.min.js"></script>
+    <script src="' . $CONFIG['static_url'] . '/js/slick.min.js"></script>
     <script src="' . $CONFIG['static_url'] . '/js/main.js"></script>';
 
 } else {
@@ -123,13 +126,9 @@ if($CONFIG['debug'] === true) {
 }
 
 ?>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=<?= $CONFIG['analytics']['google']; ?>"></script>
+<!-- Global site tag - Google Analytics -->
 <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', '<?= $CONFIG['analytics']['google']; ?>');
 </script>
 
