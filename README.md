@@ -1,12 +1,23 @@
 # Plaseo
 _Plantilla para poder crear paginas con una estructura basada en la optimización tanto de la pagina como de su desarrollo para mantenerla a corto y largo plazo._
 
+## Pre-requisitos
+* Tener instalado _apache_ en tu servidor
+* Tener activo el _htaccess_ en tu servidor
+* Tener instalado _PHP 7.3_
+
 ## Como comenzar
 _Al descargar el repositorio, se debe de subir al servidor local o en la nube, el contenido de la carpeta INIT._
 
 Estos archivos no contienen ningun tipo de configuracion cargada por lo que si se ejecuta sin mas, se lanzaran algunos errores a pantalla.
 
 ### ¿Que archivos configurar?
+#### Configurar url base en htaccess
+Se debe de agregar el url en la variable BASE_PATH para poder moverse en todo el sitio o se te redireccionara a una pantalla x o a un error 500
+```
+SetEnv BASE_PATH "localhost/plaseo/init"
+```
+
 #### Configuracion global _/lib/setting.php_
 * Se debe revisar el pais default al que se apunta y ver que este mismo. A su vez, el codigo de o el parametro _code_, sea el mismo que el del pais apuntado.
 * Aqui les dejo un ejemplo de como estara y de ahi en mas, se puede configurar como se encuentre conveniente. 

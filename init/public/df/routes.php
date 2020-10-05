@@ -38,7 +38,7 @@ $HEAD = array(
             "image"       => "",
             "card"        => "",
             "type"        => "",
-            "url"         => "/",
+            "url"         => "",
         ),
     ),
     "default" => array(
@@ -52,3 +52,5 @@ $HEAD = array(
         "have_footer" => true,
     ),
 );
+
+

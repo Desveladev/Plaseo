@@ -7,7 +7,7 @@ global $country, $lang, $CONFIG;
  * Se trabaja por separado la base url y la static url para poder diferenciar desde donde se sacan los archivos estaticos
  */
 $CONFIG['base_url']    = "";
-$CONFIG['static_url']  = "";
+$CONFIG['static_url']  = "http://localhost/plaseo/init/public/" . $country['code'] . "/static";
 
 /**
  * la url actual habla de la pagina en la que nos encontramos parados

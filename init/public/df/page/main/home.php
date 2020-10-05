@@ -3,6 +3,6 @@
 global $CONFIG;
 
 ?>
-<main class="container-fluid header-fixed mt-3 row">
+<main class="container-fluid">
     perfect
 </main>
