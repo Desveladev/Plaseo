@@ -206,3 +206,8 @@ if($CONFIG['debug'] === false) {
     $html = ob_get_clean();
     print minify_html($html);
 }
+
+/**
+ * Final de la ejecucion
+ */
+exit();
