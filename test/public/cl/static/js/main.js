@@ -40,3 +40,7 @@ var AjaxForm = function (e, form_id, success_function) {
         }
     });
 };
+
+var SuccessAjax = function (response, form_id) {
+    alert(response);
+};

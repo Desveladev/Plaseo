@@ -3,7 +3,7 @@
 global $CONFIG;
 
 ?>
-<footer>
+<div class="bg-dark mt-5" style="height: 300px">
 
-</footer>
+</div>
 <script src="<?= $CONFIG['static_url']; ?>/js/main-footer.js"></script>

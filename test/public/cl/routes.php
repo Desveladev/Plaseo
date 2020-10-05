@@ -11,7 +11,10 @@ $ROUTES = array(
         "404" => true,
     ),
     "main" => array(
-        "home"    => true
+        "home"    => true,
+        "product" => true,
+        "blog"    => true,
+        "contact" => true
     ),
 );
 
@@ -20,7 +23,7 @@ $ROUTES = array(
  * En caso de no estar activas, se redirecciona a un 404 tipo JSON
  */
 $ACTION_ROUTES = array(
-
+    "mail" => true,
 );
 
 /**
@@ -40,14 +43,38 @@ $HEAD = array(
             "type"        => "",
             "url"         => "/",
         ),
+        "product" => array(
+            "title"       => "Product - PLASEO",
+            "description" => "Product demo page - PLASEO",
+            "image"       => "",
+            "card"        => "",
+            "type"        => "",
+            "url"         => "/product",
+        ),
+        "blog" => array(
+            "title"       => "Blog - PLASEO",
+            "description" => "Blog demo page",
+            "image"       => "",
+            "card"        => "",
+            "type"        => "",
+            "url"         => "/blog",
+        ),
+        "contact" => array(
+            "title"       => "Contact - PLASEO",
+            "description" => "Contact demo page",
+            "image"       => "",
+            "card"        => "",
+            "type"        => "",
+            "url"         => "/contact",
+        ),
     ),
     "default" => array(
-        "title"       => "",
-        "description" => "",
-        "image"       => "",
+        "title"       => "Plaseo",
+        "description" => "Descripcion general para las paginas",
+        "image"       => "/img/cooperation_work_negotiation.png",
         "card"        => "summary",
         "type"        => "website",
-        "site_name"   => "",
+        "site_name"   => "Plaseo",
         "have_header" => true,
         "have_footer" => true,
     ),
