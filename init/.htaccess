@@ -1,3 +1,6 @@
 RewriteEngine On
 Options All -Indexes
 IndexIgnore *.php *.html
+
+RewriteRule ^$ index.php?c=df&l=es&s=main&p=home
+RewriteRule ^home$ index.php?c=df&l=es&s=main&p=home
