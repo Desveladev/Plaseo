@@ -102,7 +102,7 @@ if($section == "action" && $ACTION_ROUTES[$page] === true) {
  */
 if(!isset($ROUTES[$section]) || $ROUTES[$section][$page] === false) {
 
-    header("Location: " . $CONFIG['country_url'] . "/404");
+    header("Location: " . $CONFIG['actual_url'] . "/404");
     exit();
 }
 
@@ -136,6 +136,7 @@ if($CONFIG['deployment'][$country['code']]['multi_lang'] === true) {
      * Los archivos de estilos y javascript que se usan en la pagina a desplegar
      */
     include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/head.php";
+    global $HEAD;
 
     ?>
 </head>
@@ -146,7 +147,22 @@ if($CONFIG['deployment'][$country['code']]['multi_lang'] === true) {
  * El header es una seccion de la pagina que suele
  * usarse para contener el navegador de la misma
  */
-include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/header.php";
+if(isset($HEAD[$section][$page]['have_header'])) {
+
+    if($HEAD[$section][$page]['have_header'] == true) {
+
+        include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/header.php";
+    }
+} else {
+
+    if(isset($HEAD['default']['have_header'])) {
+
+        if($HEAD['default']['have_header'] == true) {
+
+            include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/header.php";
+        }
+    }
+}
 
 /**
  * Este codigo trae a este archivo la pagina que se desplegara
@@ -159,7 +175,22 @@ include_once dirname(__FILE__) . "/public/" . $country['code'] . "/page/" . $sec
 /**
  * El footer contiene la parte final de la pagina, en este archivo
  */
-include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/footer.php";
+if(isset($ROUTES[$section][$page]['have_footer'])) {
+
+    if($ROUTES[$section][$page]['have_footer'] == true) {
+
+        include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/footer.php";
+    }
+} else {
+
+    if(isset($HEAD['default']['have_footer'])) {
+
+        if($HEAD['default']['have_footer'] == true) {
+
+            include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/footer.php";
+        }
+    }
+}
 
 ?>
 </body>

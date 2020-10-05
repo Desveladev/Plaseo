@@ -6,14 +6,14 @@ global $country, $lang, $CONFIG;
  * Definimos las url base para todo el proyecto
  * Se trabaja por separado la base url y la static url para poder diferenciar desde donde se sacan los archivos estaticos
  */
-$CONFIG['base_url']    = "https://desveladev.com";
-$CONFIG['static_url']  = "https://desveladev.com/public/" . $country['code'] . "/static";
+$CONFIG['base_url']    = "http://localhost/plaseo";
+$CONFIG['static_url']  = "http://localhost/plaseo/public/" . $country['code'] . "/static";
 
 /**
  * la url actual habla de la pagina en la que nos encontramos parados
  * Esta se puede ir modificando segun la pagina, pais o idioma que se este desplegando
  */
-$CONFIG['actual_url']  = $CONFIG['base_url'];
+$CONFIG['actual_url'] = $CONFIG['base_url'];
 
 /**
  * Validamos que el sistema tenga el multinacional activo, de ser asi, la 'country_url', se actualiza con la url base
