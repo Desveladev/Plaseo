@@ -3,7 +3,7 @@
 global $country, $lang, $CONFIG;
 
 /**
- * Definimos las url base para todo el proyecto
+ * Definimos las url base para el proyecto
  * Se trabaja por separado la base url y la static url para poder diferenciar desde donde se sacan los archivos estaticos
  */
 $CONFIG['base_url']    = "";

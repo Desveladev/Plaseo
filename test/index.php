@@ -85,12 +85,6 @@ if(isset($_GET['p']) && $_GET['p'] != "") {
     $page = "home";
 }
 
-if($CONFIG['deployment']['maintenance'] === true && $page != "construct") {
-
-    header("Location: " . $CONFIG['actual_url'] . "/construct");
-    exit();
-}
-
 /**
  * Validamos que a la seccion a la que se quiere acceder sea 'action'
  * Se valida tambien si existe la accion en el array de rutas
@@ -108,8 +102,18 @@ if($section == "action" && $ACTION_ROUTES[$page] === true) {
  */
 if(!isset($ROUTES[$section]) || $ROUTES[$section][$page] === false) {
 
-    header("Location: " . $CONFIG['actual_url'] . "/404");
-    exit();
+    $section = "error";
+    $page    = "404";
+}
+
+/**
+ * Validamos que la pagina no se encuentre en mantencion, en caso contrario; no se permitira el movimiento por la pagina
+ * y todas se cargaran como la pagina en construccion
+ */
+if($CONFIG['deployment']['maintenance'] === true && $page != "construct") {
+
+    $section = "error";
+    $page    = "construct";
 }
 
 /**
@@ -205,7 +209,7 @@ if($CONFIG['deployment'][$country['code']]['multi_lang'] === true) {
 <?php
 /**
  * Valudamos si el sistema esta ne modo de debug
- * En caso de no estarlo, se cierra y limpia todo lo que va a pantalla y lo minifica
+ * En caso de no estarlo, se cierra y limpia el contenido de la pantalla y lo minifica
  */
 if($CONFIG['debug'] === false) {
 
