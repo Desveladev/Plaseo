@@ -2,3 +2,16 @@ RewriteEngine On
 Options All -Indexes
 IndexIgnore *.php *.html
 
+SetEnv BASE_PATH "localhost/plaseo/test"
+
+RewriteRule ^$     index.php?s=main&p=home
+RewriteRule ^home$ index.php?s=main&p=home
+
+RewriteRule  ^404$ index.php?s=error&p=404
+
+RewriteCond %{HTTPS} !=on
+ErrorDocument 404  https://%{ENV:BASE_PATH}/404
+
+RewriteCond %{HTTP} !=on
+ErrorDocument 404  http://%{ENV:BASE_PATH}/404
+

@@ -175,9 +175,9 @@ include_once dirname(__FILE__) . "/public/" . $country['code'] . "/page/" . $sec
 /**
  * El footer contiene la parte final de la pagina, en este archivo
  */
-if(isset($ROUTES[$section][$page]['have_footer'])) {
+if(isset($HEAD[$section][$page]['have_footer'])) {
 
-    if($ROUTES[$section][$page]['have_footer'] == true) {
+    if($HEAD[$section][$page]['have_footer'] == true) {
 
         include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/footer.php";
     }

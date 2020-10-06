@@ -1,25 +1,35 @@
 window.dataLayer = window.dataLayer || [];
 function gtag(){
-
     dataLayer.push(arguments);
 }
 
 let init_px = window.pageYOffset;
 window.onscroll = function () {
+    let header_height = $("#header").height() + parseInt($("#header").css("padding-top")) + parseInt($("#header").css("padding-bottom"));
 
     let movement_px = window.pageYOffset;
-    if(init_px >= movement_px) {
+    if(init_px >= header_height) {
 
-        $("#header").css("top", "0px");
-        $("#header").css("position", "fixed");
+        if(init_px >= movement_px) {
+
+
+            $("#header").css("top", "0px");
+            $("#header").css("position", "fixed");
+        } else {
+
+
+            $("#header").css("top", "-100px");
+        }
     } else {
 
-        $("#header").css("top", "-100px");
-        $("#header").css("position", "fixed");
-    }
+        if(init_px > header_height) {
 
-    init_px = movement_px
-};
+            $("#header").css("top", "0px");
+            $("#header").css("position", "absolute");
+        }
+    }
+    init_px = movement_px;
+}
 
 var AjaxForm = function (e, form_id, success_function) {
     e.preventDefault();

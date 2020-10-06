@@ -68,6 +68,17 @@ $HEAD = array(
             "url"         => "/contact",
         ),
     ),
+    "error" => array(
+        "404" => array(
+            "title"       => "",
+            "description" => "",
+            "image"       => "",
+            "card"        => "",
+            "type"        => "",
+            "url"         => "",
+            "have_footer" => false,
+        ),
+    ),
     "default" => array(
         "title"       => "Plaseo",
         "description" => "Descripcion general para las paginas",

@@ -125,76 +125,76 @@ if($CONFIG['deployment'][$country['code']]['multi_lang'] === true) {
  * Se agrega el head y las master con las que se trabajara en la pagina
  */
 ?>
-<!doctype html>
-<html lang="<?= $lang; ?>">
-<head>
+    <!doctype html>
+    <html lang="<?= $lang; ?>">
+    <head>
+        <?php
+
+        /**
+         * El head trae a este archivo todos los tag configurados para el correcto funcionamiento de la pagina
+         * Este contiene toda la configuracion del SEO de la pagina
+         * Los archivos de estilos y javascript que se usan en la pagina a desplegar
+         */
+        include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/head.php";
+        global $HEAD;
+
+        ?>
+    </head>
+    <body>
     <?php
 
     /**
-     * El head trae a este archivo todos los tag configurados para el correcto funcionamiento de la pagina
-     * Este contiene toda la configuracion del SEO de la pagina
-     * Los archivos de estilos y javascript que se usan en la pagina a desplegar
+     * El header es una seccion de la pagina que suele
+     * usarse para contener el navegador de la misma
      */
-    include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/head.php";
-    global $HEAD;
+    if(isset($HEAD[$section][$page]['have_header'])) {
 
-    ?>
-</head>
-<body>
-<?php
-
-/**
- * El header es una seccion de la pagina que suele
- * usarse para contener el navegador de la misma
- */
-if(isset($HEAD[$section][$page]['have_header'])) {
-
-    if($HEAD[$section][$page]['have_header'] == true) {
-
-        include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/header.php";
-    }
-} else {
-
-    if(isset($HEAD['default']['have_header'])) {
-
-        if($HEAD['default']['have_header'] == true) {
+        if($HEAD[$section][$page]['have_header'] == true) {
 
             include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/header.php";
         }
+    } else {
+
+        if(isset($HEAD['default']['have_header'])) {
+
+            if($HEAD['default']['have_header'] == true) {
+
+                include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/header.php";
+            }
+        }
     }
-}
 
-/**
- * Este codigo trae a este archivo la pagina que se desplegara
- * De esta forma lo unico que mantenemos en el archivo base de la pagina, es el contenido principal de la pagina
- * Es obligatorio que exista este archivo y se agregue a la seccion de rutas
- * o se va a generar un error 404
- */
-include_once dirname(__FILE__) . "/public/" . $country['code'] . "/page/" . $section . "/" . $page . ".php";
+    /**
+     * Este codigo trae a este archivo la pagina que se desplegara
+     * De esta forma lo unico que mantenemos en el archivo base de la pagina, es el contenido principal de la pagina
+     * Es obligatorio que exista este archivo y se agregue a la seccion de rutas
+     * o se va a generar un error 404
+     */
+    include_once dirname(__FILE__) . "/public/" . $country['code'] . "/page/" . $section . "/" . $page . ".php";
 
-/**
- * El footer contiene la parte final de la pagina, en este archivo
- */
-if(isset($ROUTES[$section][$page]['have_footer'])) {
+    /**
+     * El footer contiene la parte final de la pagina, en este archivo
+     */
+    if(isset($HEAD[$section][$page]['have_footer'])) {
 
-    if($ROUTES[$section][$page]['have_footer'] == true) {
-
-        include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/footer.php";
-    }
-} else {
-
-    if(isset($HEAD['default']['have_footer'])) {
-
-        if($HEAD['default']['have_footer'] == true) {
+        if($HEAD[$section][$page]['have_footer'] == true) {
 
             include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/footer.php";
         }
-    }
-}
+    } else {
 
-?>
-</body>
-</html>
+        if(isset($HEAD['default']['have_footer'])) {
+
+            if($HEAD['default']['have_footer'] == true) {
+
+                include_once dirname(__FILE__) . "/public/" . $country['code'] . "/master/footer.php";
+            }
+        }
+    }
+
+    ?>
+    </body>
+    </html>
 
 <?php
 /**
@@ -206,8 +206,3 @@ if($CONFIG['debug'] === false) {
     $html = ob_get_clean();
     print minify_html($html);
 }
-
-/**
- * Final de la ejecucion
- */
-exit();
