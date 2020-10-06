@@ -9,6 +9,7 @@
 $ROUTES = array(
     "error" => array(
         "404" => true,
+        "construct" => true,
     ),
     "main" => array(
         "home"    => true
@@ -39,6 +40,26 @@ $HEAD = array(
             "card"        => "",
             "type"        => "",
             "url"         => "",
+        ),
+    ),
+    "error" => array(
+        "404" => array(
+            "title"       => "",
+            "description" => "",
+            "image"       => "",
+            "card"        => "",
+            "type"        => "",
+            "url"         => "",
+        ),
+        "construct" => array(
+            "title"       => "",
+            "description" => "",
+            "image"       => "",
+            "card"        => "",
+            "type"        => "",
+            "url"         => "",
+            "have_header" => false,
+            "have_footer" => false,
         ),
     ),
     "default" => array(

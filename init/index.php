@@ -85,6 +85,12 @@ if(isset($_GET['p']) && $_GET['p'] != "") {
     $page = "home";
 }
 
+if($CONFIG['deployment']['maintenance'] === true && $page != "construct") {
+
+    header("Location: " . $CONFIG['actual_url'] . "/construct");
+    exit();
+}
+
 /**
  * Validamos que a la seccion a la que se quiere acceder sea 'action'
  * Se valida tambien si existe la accion en el array de rutas
