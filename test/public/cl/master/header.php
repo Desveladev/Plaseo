@@ -27,25 +27,25 @@ if($page == "home") {
 }
 
 ?>
-<header class="navbar navbar-expand-md bg-dark navbar-dark header-fixed" id="header">
+<header id="header" class="navbar navbar-expand-md navbar-dark header-fixed">
     <div class="container-fluid">
-        <a href="<?= $CONFIG['actual_url']; ?>/" class="logo navbar-brand p-0">Desvela<span>Dev</span></a>
+        <a href="<?= $CONFIG['actual_url']; ?>/" class="logo navbar-brand p-0">Lorem<span>ipsum</span></a>
         <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item <?= $home; ?>">
-                    <a class="nav-link" href="<?= $CONFIG['actual_url']; ?>/"><?= Lang::get_text("header", "home"); ?></a>
+                    <a class="nav-link" href="<?= $CONFIG['actual_url']; ?>/">Corporis</a>
                 </li>
                 <li class="nav-item <?= $product; ?>">
-                    <a class="nav-link " href="<?= $CONFIG['actual_url']; ?>/product"><?= Lang::get_text("header", "product"); ?></a>
+                    <a class="nav-link " href="<?= $CONFIG['actual_url']; ?>/product">dolor</a>
                 </li>
                 <li class="nav-item <?= $blog; ?>">
-                    <a class="nav-link" href="<?= $CONFIG['actual_url']; ?>/blog"><?= Lang::get_text("header", "blog"); ?></a>
+                    <a class="nav-link" href="<?= $CONFIG['actual_url']; ?>/blog">sit amet</a>
                 </li>
                 <li class="nav-item <?= $contact; ?>">
-                    <a class="nav-link" href="<?= $CONFIG['actual_url']; ?>/contact"><?= Lang::get_text("header", "contact"); ?></a>
+                    <a class="nav-link" href="<?= $CONFIG['actual_url']; ?>/contact">consectetur</a>
                 </li>
                 <?php
                 /**

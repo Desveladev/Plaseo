@@ -7,9 +7,18 @@ input[type=number]::-webkit-outer-spin-button {
 
 :root {
     --header-height: 56px;
-    --selected-color: #FF00FF;
-    --selected-color-hover: #BD00BD;
-    --logo-subcolor: #FF00FF;
+    --logo-subcolor: var(--color-4);
+    --header-color: var(--color-2);
+    --footer-color: var(--color-2);
+    --color-1: #C5C1C0;
+    --color-1-text: #0A1612;
+    --color-2: #0A1612;
+    --color-2-text: #FFFFFF;
+    --color-3: #1A2930;
+    --color-3-text: #FFFFFF;
+    --color-4: #F7CE3E;
+    --color-4-text: #0A1612;
+
 }
 
 * {
@@ -17,8 +26,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 *::selection {
-    background-color: var(--selected-color);
-    color: #fff;
+    background-color: var(--color-4);
+    color: var(--color-4-text);
 }
 
 @font-face {
@@ -35,18 +44,28 @@ input[type=number]::-webkit-outer-spin-button {
     color: var(--logo-subcolor);
 }
 
-.navbar.header-fixed {
+.header-fixed {
     position: fixed;
-    min-height: var(--header-height);
-    height: auto;
-    width: 100%;
     top: 0;
+    left: 0;
     transition: top .3s;
     z-index: 1010;
 }
 
-.container.header-fixed,
-.container-fluid.header-fixed {
+#header {
+    background-color: var(--header-color);
+    min-height: var(--header-height);
+    width: 100%;
+    height: auto;
+}
+
+#footer {
+    background-color: var(--footer-color);
+    width: 100%;
+    height: auto;
+}
+
+.main-header-fixed {
     padding-top: var(--header-height);
 }
 
@@ -64,7 +83,7 @@ p.subtitle {
     font-weight: 300;
 }
 
-icon-check:before {
+.icon-check:before {
     content: "\f00c";
 }
 
@@ -73,13 +92,15 @@ icon-check:before {
 }
 
 .btn-primary {
-    background-color: var(--selected-color);
-    border-color: var(--selected-color);
+    background-color: var(--color-2);
+    border-color: var(--color-2);
+    color: var(--color-2-text);
 }
 
 .btn-primary:hover {
-    background-color: var(--selected-color-hover);
-    border-color: var(--selected-color-hover);
+    background-color: var(--color-1);
+    border-color: var(--color-1);
+    color: var(--color-1-text);
 }
 
 .btn-group-lg .btn, .btn-lg {
@@ -88,8 +109,34 @@ icon-check:before {
     min-width: 10rem;
 }
 
-.bg-violet {
-    background-color: var(--selected-color);
+.btn-outline-secondary:hover {
+    background-color: var(--color-2);
+    border-color: var(--color-2);
+    color: var(--color-2-text);
+}
+
+.bg-color-1 {
+    background-color: var(--color-1);
+    color: var(--color-1-text);
+    border-color: var(--color-1);
+}
+
+.bg-color-2 {
+    background-color: var(--color-2);
+    color: var(--color-2-text);
+    border-color: var(--color-2);
+}
+
+.bg-color-3 {
+    background-color: var(--color-3);
+    color: var(--color-3-text);
+    border-color: var(--color-3);
+}
+
+.bg-color-4 {
+    background-color: var(--color-4);
+    color: var(--color-4-text);
+    border-color: var(--color-4);
 }
 
 @media (max-width: 991.98px) {

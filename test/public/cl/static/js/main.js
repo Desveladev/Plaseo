@@ -17,7 +17,6 @@ window.onscroll = function () {
             $("#header").css("position", "fixed");
         } else {
 
-
             $("#header").css("top", "-100px");
         }
     } else {

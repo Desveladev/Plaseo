@@ -24,6 +24,7 @@ SetEnv BASE_PATH "localhost/plaseo/init"
 ```
 $CONFIG['deployment'] = array(
     "default"         => "df",
+    "maintenance"     => false,
     "multi_national"  => false,
     "df" => array(
         "active"      => true,
