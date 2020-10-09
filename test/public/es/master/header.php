@@ -110,6 +110,7 @@ if($page == "home") {
                         }
                     }
 
+
                     print '
                         </div>
                     </li>';

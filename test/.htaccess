@@ -4,8 +4,16 @@ IndexIgnore *.php *.html
 
 SetEnv BASE_PATH "localhost/plaseo/test"
 
-RewriteRule ^$     index.php?s=main&p=home
-RewriteRule ^home$ index.php?s=main&p=home
+RewriteRule ^cl/$                index.php?c=cl&s=main&p=home
+RewriteRule ^cl/home$            index.php?c=cl&s=main&p=home
+
+RewriteRule ^es/$                index.php?c=es&s=main&p=home
+RewriteRule ^es/es/$             index.php?c=es&l=es&s=main&p=home
+RewriteRule ^es/en/$             index.php?c=es&l=en&s=main&p=home
+
+RewriteRule ^es/home$            index.php?c=es&s=main&p=home
+RewriteRule ^es/es/home$         index.php?c=es&l=es&s=main&p=home
+RewriteRule ^es/en/home$         index.php?c=es&l=en&s=main&p=home
 
 RewriteRule ^construct$ index.php?s=error&p=construct
 
@@ -16,4 +24,3 @@ ErrorDocument 404  https://%{ENV:BASE_PATH}/404
 
 RewriteCond %{HTTP} !=on
 ErrorDocument 404  http://%{ENV:BASE_PATH}/404
-
