@@ -56,7 +56,7 @@ if($page == "home") {
                 if($CONFIG['deployment']['multi_national'] === true || $country['multi_lang'] === true) {
 
                     print '
-                    <li class="dropdown">
+                    <li class="dropdown ml-md-3">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="country_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
 
                     if($CONFIG['deployment']['multi_national'] === true) {
@@ -109,6 +109,7 @@ if($page == "home") {
                             }
                         }
                     }
+
 
                     print '
                         </div>
