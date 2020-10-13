@@ -27,8 +27,8 @@ if($page == "home") {
 }
 
 ?>
-<header id="header" class="navbar navbar-expand-md navbar-dark header-fixed">
-    <div class="container-fluid">
+<header id="header" class="header-fixed">
+    <div class="container-fluid navbar navbar-expand-md" id="navbar">
         <a href="<?= $CONFIG['actual_url']; ?>/" class="logo navbar-brand p-0">Lorem<span>ipsum</span></a>
         <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
@@ -36,16 +36,16 @@ if($page == "home") {
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item <?= $home; ?>">
-                    <a class="nav-link" href="<?= $CONFIG['actual_url']; ?>/">Corporis</a>
+                    <a class="nav-link" href="<?= $CONFIG['actual_url']; ?>/"><?= Lang::get_text("header", "home"); ?></a>
                 </li>
                 <li class="nav-item <?= $product; ?>">
-                    <a class="nav-link " href="<?= $CONFIG['actual_url']; ?>/product">dolor</a>
+                    <a class="nav-link " href="<?= $CONFIG['actual_url']; ?>/product"><?= Lang::get_text("header", "product"); ?></a>
                 </li>
                 <li class="nav-item <?= $blog; ?>">
-                    <a class="nav-link" href="<?= $CONFIG['actual_url']; ?>/blog">sit amet</a>
+                    <a class="nav-link" href="<?= $CONFIG['actual_url']; ?>/blog"><?= Lang::get_text("header", "blog"); ?></a>
                 </li>
                 <li class="nav-item <?= $contact; ?>">
-                    <a class="nav-link" href="<?= $CONFIG['actual_url']; ?>/contact">consectetur</a>
+                    <a class="nav-link" href="<?= $CONFIG['actual_url']; ?>/contact"><?= Lang::get_text("header", "contact"); ?></a>
                 </li>
                 <?php
                 /**
@@ -56,7 +56,7 @@ if($page == "home") {
                 if($CONFIG['deployment']['multi_national'] === true || $country['multi_lang'] === true) {
 
                     print '
-                    <li class="dropdown">
+                    <li class="dropdown ml-md-3">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="country_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
 
                     if($CONFIG['deployment']['multi_national'] === true) {
@@ -81,7 +81,7 @@ if($page == "home") {
                     if($CONFIG['deployment']['multi_national'] === true) {
 
                         print '
-                            <h6 class="dropdown-header">Pais</h6>';
+                            <h6 class="dropdown-header">' . Lang::get_text("header", "country") . '</h6>';
                         foreach ($CONFIG['deployment'] as $countr) {
 
                             if(isset($countr['active']) && $countr['active'] === true) {
@@ -99,7 +99,7 @@ if($page == "home") {
                     if($country['multi_lang'] === true) {
 
                         print '
-                            <h6 class="dropdown-header">Idioma</h6>';
+                            <h6 class="dropdown-header">' . Lang::get_text("header", "lang") . '</h6>';
 
                         foreach ($country['lang'] as $lan => $val) {
 

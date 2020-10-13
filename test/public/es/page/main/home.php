@@ -5,11 +5,11 @@ global $CONFIG;
 $main_class = "";
 if(isset($CONFIG['header_fixed']) && $CONFIG['header_fixed'] === true) {
 
-    $main_class .= "main-header-fixed ";
+    $main_class .= "header-fixed ";
 }
 
 ?>
-<main class="<?= $main_class; ?>">
+<main class="<?= $main_class; ?>" id="content">
     <section class="container pb-5">
         <div class="row">
             <div class="col-12 col-md-6">
@@ -54,7 +54,7 @@ if(isset($CONFIG['header_fixed']) && $CONFIG['header_fixed'] === true) {
                 </div>
             </div>
         </div>
-        <div class="card p-3 bg-color-3 mt-5">
+        <div class="card p-3 bg-color-2 mt-5">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid amet beatae cum dolor doloribus fugit hic in, labore laboriosam libero mollitia odio, quas qui quibusdam quidem ratione sapiente, temporibus.
         </div>
     </section>

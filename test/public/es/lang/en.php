@@ -7,6 +7,8 @@ $LANG = array(
         "product" => "Product",
         "blog"    => "Blog",
         "contact" => "Contact",
+        "country" => "Country",
+        "lang"    => "Lang",
     ),
     "main"   => array(),
     "footer" => array(),

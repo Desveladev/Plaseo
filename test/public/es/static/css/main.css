@@ -46,18 +46,18 @@ input[type=number]::-webkit-outer-spin-button {
     color: var(--logo-subcolor);
 }
 
-.header-fixed {
+#header {
+    min-height: var(--header-height);
+    width: 100%;
+    height: auto;
+}
+
+#header.header-fixed {
     position: fixed;
     top: 0;
     left: 0;
     transition: top .3s;
     z-index: 1010;
-}
-
-#header {
-    min-height: var(--header-height);
-    width: 100%;
-    height: auto;
 }
 
 #navbar {
@@ -89,7 +89,7 @@ input[type=number]::-webkit-outer-spin-button {
     height: auto;
 }
 
-.main-header-fixed {
+#content.header-fixed {
     padding-top: var(--header-height);
 }
 
