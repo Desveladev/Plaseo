@@ -56,8 +56,10 @@ if($lang != $country['default_lang'] && $country['multi_lang'] === true) {
 /**
  * Aqui definimos el tipo de header que se usara en la pagina, hay 3 tipos de header que estan configurados segun el uso
  * que se le quiera dar a la pagina.
+ * Las clases las puedes buscar en la clase main.
  * Dinamic: El header, se oculta al bajar y se muestra al subir.
  * Top: El header no se movera de su posicion en el inicio de la pagina desplegada.
  * Fixed: El header se mantendra fijo en la parte superior de la pagina, quedando a la vista en cualquier momento.
+ * Para llamar correctamente a estas clases, se debe de anteponer el "header-" y escribirlas en minuscula.
  */
 $CONFIG['header_type'] = "header-dinamic";
