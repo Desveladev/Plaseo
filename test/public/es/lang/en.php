@@ -10,6 +10,10 @@ $LANG = array(
         "country" => "Country",
         "lang"    => "Lang",
     ),
+    "countries" => array(
+        "Chile"  => "Chile",
+        "España" => "Spain",
+    ),
     "main"   => array(),
     "footer" => array(),
 );

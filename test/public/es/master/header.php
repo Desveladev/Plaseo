@@ -61,7 +61,7 @@ if($page == "home") {
 
                     if($CONFIG['deployment']['multi_national'] === true) {
 
-                        print $country['name'];
+                        print Lang::get_text("countries", $country['name']);
                     }
 
                     if($CONFIG['deployment']['multi_national'] === true && $country['multi_lang'] === true) {
@@ -86,7 +86,19 @@ if($page == "home") {
 
                             if(isset($countr['active']) && $countr['active'] === true) {
 
-                                print '<a class="dropdown-item" href="' . $CONFIG['base_url'] . '/' . $countr['code'] . '/">' . $countr['name'] . '</a>';
+                                if($countr['multi_lang'] === true) {
+
+                                    if($CONFIG['actual']['lang'] != $countr['default_lang']) {
+
+                                        print '<a class="dropdown-item" href="' . $CONFIG['base_url'] . '/' . $countr['code'] . '/' . $CONFIG['actual']['lang'] . '/">' . Lang::get_text("countries", $countr['name']) . '</a>';
+                                    } else {
+
+                                        print '<a class="dropdown-item" href="' . $CONFIG['base_url'] . '/' . $countr['code'] . '/">' . Lang::get_text("countries", $countr['name']) . '</a>';
+                                    }
+                                } else {
+
+                                    print '<a class="dropdown-item" href="' . $CONFIG['base_url'] . '/' . $countr['code'] . '/">' . Lang::get_text("countries", $countr['name']) . '</a>';
+                                }
                             }
                         }
                     }

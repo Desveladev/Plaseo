@@ -129,6 +129,11 @@ if($CONFIG['deployment'][$country['code']]['multi_lang'] === true) {
     $langClass = new LangLib\Lang($country['code'], $lang);
 }
 
+$CONFIG['actual'] = array(
+    "lang" => $lang,
+    "country" => $country['code'],
+);
+
 /**
  * Configuramos toda la estructura html que se usara en la pagina y la desplegamos directamente
  * El lenguale se lo asignamos segun el configurado
