@@ -27,7 +27,7 @@ if($page == "home") {
 }
 
 ?>
-<header id="header" class="header-fixed">
+<header id="header" class="<?= $CONFIG['header_type']; ?>">
     <div class="container-fluid navbar navbar-expand-md" id="navbar">
         <a href="<?= $CONFIG['actual_url']; ?>/" class="logo navbar-brand p-0">Lorem<span>ipsum</span></a>
         <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false">

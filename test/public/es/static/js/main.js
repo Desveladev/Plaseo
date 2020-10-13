@@ -2,7 +2,7 @@ window.dataLayer = window.dataLayer || [];
 
 let init_px = window.pageYOffset;
 window.onscroll = function () {
-    let header = $("#header.header-fixed");
+    let header = $("#header.header-dinamic");
     let header_height = header.height() + parseInt($("#header").css("padding-top")) + parseInt($("#header").css("padding-bottom"));
 
     let movement_px = window.pageYOffset;

@@ -2,14 +2,8 @@
 
 global $CONFIG;
 
-$main_class = "";
-if(isset($CONFIG['header_fixed']) && $CONFIG['header_fixed'] === true) {
-
-    $main_class .= "header-fixed ";
-}
-
 ?>
-<main class="<?= $main_class; ?>" id="content">
+<main class="<?= $CONFIG['header_type']; ?>" id="content">
     <section class="container pb-5">
         <div class="row">
             <div class="col-12 col-md-6">

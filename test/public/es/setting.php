@@ -53,4 +53,11 @@ if($lang != $country['default_lang'] && $country['multi_lang'] === true) {
     $CONFIG['lang_url']   .= "/" . $lang;
 }
 
-$CONFIG['header_fixed'] = true;
+/**
+ * Aqui definimos el tipo de header que se usara en la pagina, hay 3 tipos de header que estan configurados segun el uso
+ * que se le quiera dar a la pagina.
+ * Dinamic: El header, se oculta al bajar y se muestra al subir.
+ * Top: El header no se movera de su posicion en el inicio de la pagina desplegada.
+ * Fixed: El header se mantendra fijo en la parte superior de la pagina, quedando a la vista en cualquier momento.
+ */
+$CONFIG['header_type'] = "header-dinamic";

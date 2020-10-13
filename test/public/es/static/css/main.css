@@ -8,10 +8,6 @@ input[type=number]::-webkit-outer-spin-button {
 :root {
     --header-height: 56px;
     --transition: .15s;
-    --logo-subcolor: var(--color-4);
-    --header-color: var(--color-2);
-    --header-color-text: var(--color-2-text);
-    --footer-color: var(--color-2);
     --color-1: #C5C1C0;
     --color-1-text: #0A1612;
     --color-2: #0A1612;
@@ -20,7 +16,10 @@ input[type=number]::-webkit-outer-spin-button {
     --color-3-text: #FFFFFF;
     --color-4: #F7CE3E;
     --color-4-text: #0A1612;
-
+    --logo-subcolor: var(--color-4);
+    --header-color: var(--color-2);
+    --header-color-text: var(--color-2-text);
+    --footer-color: var(--color-2);
 }
 
 * {
@@ -52,12 +51,19 @@ input[type=number]::-webkit-outer-spin-button {
     height: auto;
 }
 
-#header.header-fixed {
-    position: fixed;
+#header.header-dinamic, #header.header-fixed, #header.header-top {
     top: 0;
     left: 0;
-    transition: top .3s;
+    transition: top var(--transition);
     z-index: 1010;
+}
+
+#header.header-dinamic, #header.header-fixed{
+    position: fixed;
+}
+
+#header.header-top {
+    position: absolute;
 }
 
 #navbar {
@@ -84,12 +90,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #footer {
-    background-color: var(--footer-color);
     width: 100%;
     height: auto;
 }
 
-#content.header-fixed {
+#content.header-fixed, #content.header-dinamic, #content.header-top  {
     padding-top: var(--header-height);
 }
 
