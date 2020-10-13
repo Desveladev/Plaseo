@@ -48,11 +48,7 @@ if($page == "home") {
                     <a class="nav-link" href="<?= $CONFIG['actual_url']; ?>/contact"><?= Lang::get_text("header", "contact"); ?></a>
                 </li>
                 <?php
-                /**
-                 * Validamos si el multidioma o el multipais esta activado
-                 * En caso de que alguno de los 2 los este, se imprime el boton y el contenido variara segun cual de los 2
-                 * estaba activo o si ambos lo estaban
-                 */
+
                 if($CONFIG['deployment']['multi_national'] === true || $country['multi_lang'] === true) {
 
                     print '
@@ -121,7 +117,6 @@ if($page == "home") {
                             }
                         }
                     }
-
 
                     print '
                         </div>
