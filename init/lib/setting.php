@@ -4,12 +4,12 @@ $CONFIG = array();
 $CONFIG['debug'] = true;
 
 $CONFIG['deployment'] = array(
-    "default"         => "df",
+    "default"         => "cl",
     "maintenance"     => true,
     "multi_national"  => false,
-    "df" => array(
+    "cl" => array(
         "active"      => true,
-        "code"        => "df",
+        "code"        => "cl",
         "name"        => "Default",
         "multi_lang"  => false,
         "lang"        => array(
