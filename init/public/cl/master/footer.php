@@ -3,7 +3,7 @@
 global $CONFIG;
 
 ?>
-<footer>
+<div class="py-5" id="footer">
 
-</footer>
+</div>
 <script src="<?= $CONFIG['static_url']; ?>/js/main-footer.js"></script>

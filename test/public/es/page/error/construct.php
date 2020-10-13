@@ -12,8 +12,8 @@ if(isset($CONFIG['header_fixed']) && $CONFIG['header_fixed'] === true) {
 <main class="<?= $main_class; ?>">
     <div class="container mt-5 pt-5">
         <div class="row">
-            <label class="logo navbar-brand p-0 w-100 text-center">Lorem<span>ipsum</span></label>
-            <h1 class="text-center w-100">Repellendus suscipit vero voluptate</h1>
+            <label class="logo navbar-brand p-0 w-100 text-center">Desvela<span>Dev</span></label>
+            <h1 class="text-center w-100">Sitio en Construccion</h1>
         </div>
     </div>
 </main>

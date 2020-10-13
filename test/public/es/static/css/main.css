@@ -7,8 +7,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 :root {
     --header-height: 56px;
+    --transition: .15s;
     --logo-subcolor: var(--color-4);
     --header-color: var(--color-2);
+    --header-color-text: var(--color-2-text);
     --footer-color: var(--color-2);
     --color-1: #C5C1C0;
     --color-1-text: #0A1612;
@@ -53,10 +55,32 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #header {
-    background-color: var(--header-color);
     min-height: var(--header-height);
     width: 100%;
     height: auto;
+}
+
+#navbar {
+    background-color: var(--header-color);
+    color: var(--header-color-text);
+}
+
+#navbar .navbar-brand, #navbar .navbar-nav .nav-link.show, #navbar .navbar-nav .show>.nav-link,
+#navbar .navbar-nav .nav-link {
+    color: var(--header-color-text);
+    opacity: .5;
+    transition: var(--transition);
+}
+
+#navbar .navbar-nav .active>.nav-link, #navbar .navbar-nav .nav-link.active, #navbar .navbar-nav .nav-link:focus,
+#navbar .navbar-nav .nav-link:hover, #navbar .navbar-brand {
+    opacity: 1;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    color: var(--color-2-text);
+    text-decoration: none;
+    background-color: var(--color-2);
 }
 
 #footer {

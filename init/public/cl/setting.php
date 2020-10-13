@@ -52,3 +52,5 @@ if($lang != $country['default_lang'] && $country['multi_lang'] === true) {
     $CONFIG['actual_url'] .= "/" . $lang;
     $CONFIG['lang_url']   .= "/" . $lang;
 }
+
+$CONFIG['header_fixed'] = true;

@@ -76,7 +76,7 @@ if(isset($SEO['url']) && $SEO['url'] != "") {
 <!-- OG -->
 <meta property="og: locate" content="<?= $lang . "_" . $country['code'] ?>">
 <meta property="og: type" content="<?= $type; ?>">
-<meta property="og: url" content="<?= $CONFIG['base_url'] . $url; ?>">
+<meta property="og: url" content="<?= $CONFIG['actual_url'] . $url; ?>">
 <meta property="og: site_name" content="<?= $site_name; ?>">
 <meta property="og: title" content="<?= $title; ?>">
 <meta property="og: description" content="<?= $description; ?>">
