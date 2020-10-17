@@ -20,6 +20,8 @@ input[type=number]::-webkit-outer-spin-button {
     --header-color: var(--color-2);
     --header-color-text: var(--color-2-text);
     --footer-color: var(--color-2);
+    --transition-lift: .5s;
+    --transition-lift-active: .15s;
 }
 
 * {
@@ -126,7 +128,8 @@ p.subtitle {
     color: var(--color-2-text);
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
     background-color: var(--color-1);
     border-color: var(--color-1);
     color: var(--color-1-text);
@@ -138,7 +141,7 @@ p.subtitle {
     min-width: 10rem;
 }
 
-.btn-outline-secondary:hover {
+.btn-outline-secondary:hover, .btn-outline-secondary:focus, .btn-outline-secondary:active {
     background-color: var(--color-2);
     border-color: var(--color-2);
     color: var(--color-2-text);
@@ -168,8 +171,55 @@ p.subtitle {
     border-color: var(--color-4);
 }
 
+.color-1 {
+    color: var(--color-1);
+}
+
+.color-2 {
+    color: var(--color-2);
+}
+
+.color-3 {
+    color: var(--color-3);
+}
+
+.color-4 {
+    color: var(--color-4);
+}
+
 @media (max-width: 991.98px) {
     h1, .h1 {
         font-size: 3rem;
     }
+}
+
+.lift {
+    -webkit-transition: box-shadow var(--transition-lift) ease,-webkit-transform var(--transition-lift) ease;
+    transition: box-shadow var(--transition-lift) ease,-webkit-transform var(--transition-lift) ease;
+    transition: box-shadow var(--transition-lift) ease,transform var(--transition-lift) ease;
+    transition: box-shadow var(--transition-lift) ease,transform var(--transition-lift) ease,-webkit-transform var(--transition-lift) ease;
+}
+
+.lift:hover {
+    box-shadow: 0 1rem 2.5rem rgba(22,28,45,.1),0 .5rem 1rem -.75rem rgba(22,28,45,.1);
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+}
+
+.lift, .lift.clickeable:active {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+}
+
+.lift.clickeable:active {
+    box-shadow: 0 0 0 rgba(22,28,45,0), 0 0 0 0 rgba(22,28,45,0);
+    -webkit-transition: box-shadow var(--transition-lift) ease,-webkit-transform var(--transition-lift) ease;
+    transition: box-shadow var(--transition-lift) ease,-webkit-transform var(--transition-lift) ease;
+    transition: box-shadow var(--transition-lift) ease,transform var(--transition-lift) ease;
+    transition: box-shadow var(--transition-lift) ease,transform var(--transition-lift) ease,-webkit-transform var(--transition-lift) ease;
+}
+
+
+ul.list {
+    list-style-type: none;
 }
